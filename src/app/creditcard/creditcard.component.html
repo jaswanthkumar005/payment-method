@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="row mt-2">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
+
+      <div class="card">
+        <div class="card-header">
+            <strong>Enter Your Credit Card Details</strong>
+
+        </div>
+        <div class="card-body">
+            <div class="row">
+              <form (ngSubmit) = "makePayment(f)" #f="ngForm">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="name">CreditCard No.</label>
+                        <input class="form-control" name="creditCardNumber"  ngModel type="text" placeholder="Enter Credit card no."  minlength="10" maxlength="10"  pattern="^[0-9]*$"  required #creditNum = "ngModel">
+                        <span class="help-block" *ngIf="!creditNum.valid
+                  && creditNum.touched">please enter valid credit card number</span>
+                    </div>
+
+                  <div class="form-group">
+                      <label for="cardholder">cardholder</label>
+                      <input class="form-control" name="cardholder"  ngModel type="text" placeholder="Enter your card name" required #cardHolder = "ngModel">
+                      <span class="help-block" *ngIf="!cardHolder.valid
+                      && cardHolder.touched">please enter valid card holder name</span>
+                  </div>
+
+
+                <div class="form-group">
+                    <label for="expiresin">Expire Date</label>
+                    <input class="form-control" name="expiresin"  ngModel type="date" placeholder="Enter your card name" [min]="today" required>
+                </div>
+
+
+              <div class="form-group">
+                  <label for="security code">security code</label>
+                  <input class="form-control" name="securityCode"  ngModel type="text" placeholder="Enter your card name" minlength="3" maxlength="3" #security="ngModel" >
+                  <span class="help-block" *ngIf="!security.valid
+                  && security.touched">Enter Valid Security</span>
+              </div>
+              <div class="form-group">
+                <label for="amount">Amount</label>
+                <input class="form-control" name="amount"  ngModel type="number" placeholder="amount" min="1." pattern="^[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*$" required #amount="ngModel">
+                <span class="help-block" *ngIf="(!amount.valid
+                  && amount.touched )||(amount.value <= 0 && amount.touched) ">Enter Valid Amount</span>
+            </div>
+          <button type="submit" class="btn btn-primary" [disabled]="f.invalid"
+          >Submit</button>
+        </div>
+              </form>
+          </div>
+            </div>
+      </div>
+
+  </div>
+</div>
