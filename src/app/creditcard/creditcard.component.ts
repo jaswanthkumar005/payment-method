@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Observable,interval,Subscription } from 'rxjs';
 import {Credit} from '../credit.model';
 import {PaymentService} from "../payment.service";
 
@@ -14,6 +15,11 @@ export class CreditcardComponent implements OnInit {
   constructor(private paymentService:PaymentService) { }
 
   ngOnInit() {
+   /* const obs=  interval(1000);
+    obs.subscribe((value) =>{
+      console.log(value);
+    });
+    */
     this.today = new Date().toISOString().split('T')[0];
   }
 

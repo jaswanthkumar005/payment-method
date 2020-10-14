@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { CreditcardComponent } from './creditcard/creditcard.component';
 import { PaymentmethodComponent } from './paymentmethod/paymentmethod.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { DebitcardComponent } from './debitcard/debitcard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,6 +15,8 @@ export class PaymentService {
       console.log(data);
       alert(`
       $ ${data.credit.amount} deducted from your account ${data.credit.cardholder}!! `);
+    },(error)=> {
+      console.log(error);
     });
     this.router.navigate(['/'])
   }
